@@ -1,0 +1,103 @@
+LeetCode Logo
+Daily Question
+93
+
+avatar
+Premium
+Testcase
+Description
+Description
+Editorial
+Editorial
+Solutions
+Solutions
+Accepted
+Submissions
+Submissions
+Code
+
+
+Test Result
+1
+[1,10,100]
+[1000]
+[1,2,3]
+[4,4,4]
+Java
+Auto
+
+
+
+
+
+101112131415161718192021222324252627282930313233
+        return maxLength;
+    }
+}
+Saved
+
+All Submissions
+
+Accepted
+Shubh Sharma
+Shubh Sharma
+submitted at Sep 24, 2024 19:26
+
+Editorial
+
+Solution
+Runtime
+360
+ms
+Beats
+5.27%
+Analyze Complexity
+Memory
+55.88
+MB
+Beats
+57.12%
+Analyze Complexity
+Code
+Java
+import java.util.HashMap;
+
+class Solution {
+    public int longestCommonPrefix(int[] arr1, int[] arr2) {
+        HashMap<String, Integer> prefixMap = new HashMap<>();
+        
+        // Step 1: Build the prefix map for arr1
+        for (int num : arr1) {
+            String strNum = Integer.toString(num);
+            String prefix = "";
+            for (char ch : strNum.toCharArray()) {
+                prefix += ch;
+                prefixMap.put(prefix, prefixMap.getOrDefault(prefix, 0) + 1);
+            }
+        }
+        
+        int maxLength = 0;
+        
+        // Step 2: Check for common prefixes in arr2
+        for (int num : arr2) {
+            String strNum = Integer.toString(num);
+            String prefix = "";
+            for (char ch : strNum.toCharArray()) {
+                prefix += ch;
+                if (prefixMap.containsKey(prefix)) {
+                    maxLength = Math.max(maxLength, prefix.length());
+                }
+            }
+        }
+        
+        return maxLength;
+    }
+}
+View more
+More challenges
+3093. Longest Common Suffix Queries
+Write your notes here
+Select related tags
+0/5
+
+Tag
